@@ -65,6 +65,7 @@
       color: var(--muted);
       font-size: 0.85rem;
       white-space: nowrap;
+      flex: 0 0 auto;
     }
     .dot{
       width:8px;height:8px;border-radius:99px;
@@ -198,35 +199,46 @@
     }
     tbody td:last-child { border-right: none; }
 
-    /* ⭐ 모바일 최적화 */
+    /* ✅ 모바일 최적화(요청 반영: 헤더/검색+장르 한 줄 유지) */
     @media (max-width: 520px) {
       .app { padding: 12px 12px 28px; }
 
-      header {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 8px;
+      /* 헤더: PC처럼 한 줄 유지 + 줄바꿈 방지 */
+      header{
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 10px;
       }
-
-      header h1 { font-size: 1.45rem; }
-
-      .controls {
-        padding: 10px;
-        gap: 8px;
-      }
-
-      .controls .search-wrap {
-        flex: 1 1 100%;
+      header h1{
+        font-size: 1.35rem;
+        white-space: nowrap;
+        flex: 1 1 auto;
         min-width: 0;
       }
+      .count-badge{
+        flex: 0 0 auto;
+        font-size: 0.82rem;
+        padding: 5px 9px;
+      }
 
-      .controls select {
-        flex: 1 1 100%;
-        width: 100%;
+      /* 검색 + 장르: PC처럼 한 줄 유지 */
+      .controls{
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 8px;
+        padding: 10px;
+      }
+      .controls .search-wrap{
+        flex: 1 1 auto;
+        min-width: 0; /* ⭐ 좁은 화면에서도 줄바꿈 안 되게 */
+      }
+      .controls select{
+        flex: 0 0 110px; /* 모바일에서 살짝만 줄임 */
+        width: 110px;
       }
 
       table { font-size: 0.9rem; }
-
       td { padding: 9px 10px; }
 
       .artist-cell {
