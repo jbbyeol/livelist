@@ -42,7 +42,7 @@ const songs = [
 
       {artist: "앤 원(Ann One)", title: "혼자하는 사랑", genre:"한국"},
 
-      {artist: "에일리", title: "하루 사랑", genre:"한국"},
+      {artist: "에일리", title: "하루", genre:"한국"},
 
       {artist: "웬디", title: "Goodbye", genre:"한국"},
 
