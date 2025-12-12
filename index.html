@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>하별 노래북</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; }
+
+    :root{
+      --bg: #e9f4ff;
+      --text: #234052;
+      --muted: #5f7a8b;
+
+      --card: #fdfdff;
+      --line: #cfe3f9;
+      --line2: #e1effb;
+
+      --header: #dff0ff;
+      --artist: #eaf7ff;
+
+      --shadow: 0 10px 28px rgba(20, 40, 80, 0.08);
+      --radius: 14px;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(900px 300px at 30% -10%, #f6fbff 0%, var(--bg) 60%);
+      color: var(--text);
+    }
+
+    .app {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 16px 40px;
+    }
+
+    header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    header h1 {
+      margin: 0;
+      color: var(--text);
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+
+    .count-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(253,253,255,0.8);
+      color: var(--muted);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:99px;
+      background:#7cc7ff;
+      box-shadow: 0 0 0 4px rgba(124,199,255,0.25);
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 10px;
+      border-radius: var(--radius);
+      background: rgba(253,253,255,0.75);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+
+    .controls input,
+    .controls select {
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      font-size: 0.95rem;
+      background: #ffffff;
+      color: var(--text);
+      outline: none;
+      transition: box-shadow .15s ease, border-color .15s ease, transform .05s ease;
+    }
+
+    .controls input {
+      flex: 1 1 220px;
+      padding-left: 38px;
+      background:
+        linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+      position: relative;
+    }
+    .controls .search-wrap{
+      position: relative;
+      flex: 1 1 220px;
+      min-width: 220px;
+    }
+    .controls .search-wrap::before{
+      content: "🔎";
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.95rem;
+      opacity: 0.75;
+      pointer-events: none;
+    }
+    .controls .search-wrap input{
+      width: 100%;
+    }
+
+    .controls input::placeholder { color: #7a93a5; }
+
+    .controls select {
+      flex: 0 0 120px;
+      cursor: pointer;
+      background: linear-gradient(180deg, #ffffff 0%, #f5fbff 100%);
+    }
+
+    .controls input:focus,
+    .controls select:focus {
+      border-color: #8bd2ff;
+      box-shadow: 0 0 0 4px rgba(139,210,255,0.35);
+    }
+
+    .table-wrapper {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      table-layout: fixed;
+    }
+
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line2);
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    td.title-cell {
+      padding-left: 22px;
+      color: #1f3a4a;
+    }
+
+    /* 제목 hover */
+    ctd.title-cell {
+        padding-left: 22px;
+        color: #1f3a4a;
+        transition: color 0.15s ease;
+    }
+
+    td.title-cell:hover {
+        color: #3b82c4;
+    }
+
+    /* 가수 셀 */
+    .artist-cell {
+      width: 150px;
+      min-width: 150px;
+      max-width: 150px;
+      text-align: center;
+      vertical-align: middle;
+      background: var(--artist);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.1px;
+    }
+
+    tbody tr:nth-child(odd) { background: #ffffff; }
+    tbody tr:nth-child(even) { background: #f7fbff; }
+
+    .empty-state {
+      padding: 26px 16px;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .hidden { display: none; }
+
+    tbody td {
+      border-right: 1.5px solid #e3f1ff;
+    }
+    tbody td:last-child { border-right: none; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>⭐하별 노래북</h1>
+      <div class="count-badge" id="countBadge"><span class="dot"></span><span id="countText">0곡</span></div>
+    </header>
+
+    <section class="controls">
+      <div class="search-wrap">
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="가수 또는 제목 검색 (띄어 쓰기 상관 없이 가능)"
+        />
+      </div>
+
+      <select id="tagSelect" aria-label="태그 선택">
+        <option value="all">전체</option>
+        <option value="한국">한국</option>
+        <option value="팝송">팝송</option>
+      </select>
+    </section>
+
+    <section class="table-wrapper">
+      <table>
+        <tbody id="songTbody"></tbody>
+      </table>
+
+      <div id="emptyState" class="empty-state hidden">
+        조건에 맞는 노래가 없습니다 ⭐
+      </div>
+    </section>
+  </div>
+
+  <script src="songs.js"></script>
+
+  <script>
+    const tbody = document.getElementById("songTbody");
+    const searchInput = document.getElementById("searchInput");
+    const tagSelect = document.getElementById("tagSelect");
+    const emptyState = document.getElementById("emptyState");
+    const countText = document.getElementById("countText");
+
+    function renderTable(list) {
+      tbody.innerHTML = "";
+
+      countText.textContent = `${list.length}곡`;
+
+      if (!list.length) {
+        emptyState.classList.remove("hidden");
+        return;
+      }
+      emptyState.classList.add("hidden");
+
+      const groups = new Map();
+      list.forEach(song => {
+        const key = song.artist || "";
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(song);
+      });
+
+      groups.forEach((songsOfArtist) => {
+        songsOfArtist.forEach((song, index) => {
+          const tr = document.createElement("tr");
+
+          if (index === 0) {
+            const tdArtist = document.createElement("td");
+            tdArtist.textContent = song.artist;
+            tdArtist.rowSpan = songsOfArtist.length;
+            tdArtist.classList.add("artist-cell");
+            tr.appendChild(tdArtist);
+          }
+
+          const tdTitle = document.createElement("td");
+          tdTitle.textContent = song.title;
+          tdTitle.classList.add("title-cell");
+          tr.appendChild(tdTitle);
+
+          tbody.appendChild(tr);
+        });
+      });
+    }
+
+    function normalize(str) {
+      return (str || "").toLowerCase().replace(/\s+/g, "");
+    }
+
+    function matchTag(song, tag) {
+      if (tag === "all") return true;
+      const g = song.genre;
+      if (!g) return false;
+      if (Array.isArray(g)) return g.includes(tag);
+      return String(g) === tag;
+    }
+
+    function getFilteredSongs() {
+      const keyword = normalize(searchInput.value);
+      const selectedTag = tagSelect.value;
+
+      return songs.filter(song => {
+        const title = normalize(song.title);
+        const artist = normalize(song.artist);
+        const combined = normalize(`${song.artist} ${song.title}`);
+
+        const matchKeyword =
+          !keyword ||
+          title.includes(keyword) ||
+          artist.includes(keyword) ||
+          combined.includes(keyword);
+
+        const matchSelectedTag = matchTag(song, selectedTag);
+
+        return matchKeyword && matchSelectedTag;
+      });
+    }
+
+    function updateTable() {
+      renderTable(getFilteredSongs());
+    }
+
+    searchInput.addEventListener("input", updateTable);
+    tagSelect.addEventListener("change", updateTable);
+
+    renderTable(songs);
+  </script>
+</body>
+</html>
