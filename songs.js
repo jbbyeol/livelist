@@ -2,7 +2,7 @@
 // ✅ 노래 리스트만 모아둔 파일
 
 const songs = [
-
+      
       {artist: "권진아", title: "끝", genre:"한국" },
       {artist: "권진아", title: "시계 바늘", genre:"한국"},
       {artist: "권진아", title: "오늘 뭐 했는지 말해봐", genre:"한국"},
@@ -31,6 +31,8 @@ const songs = [
       {artist: "성시경", title: "너는 나의 봄이다", genre:"한국"},
       {artist: "성시경", title: "너의 모든 순간", genre:"한국"},
       {artist: "성시경", title: "두 사람", genre:"한국"},
+
+      {artist: "십센치(10CM)", title: "스토커", genre:"한국" },
 
       {artist: "아이유", title: "느리게 하는 일", genre:"한국"},
       {artist: "아이유", title: "무릎", genre:"한국"},
