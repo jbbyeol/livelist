@@ -9,23 +9,36 @@ const songs = [
       {artist: "권진아", title: "운이 좋았지", genre:"한국"},
       {artist: "권진아", title: "이별 뒷면", genre:"한국"},
 
+      {artist: "김광진", title: "편지", genre:"한국"},
+
       {artist: "김민석", title: "취중고백 (원곡:필)", genre:"한국"},
+
+      {artist: "김연우", title: "이별택시", genre:"한국"},
 
       {artist: "김혜림", title: "날 위한 이별", genre:"한국"},
 
       {artist: "더레이", title: "청소", genre:"한국"},
 
+      {artist: "로이킴", title: "그때 헤어지면 돼", genre:"한국"},
+      
       {artist: "린", title: "사랑했잖아", genre:"한국"},
       {artist: "린", title: "시간을 거슬러", genre:"한국"},
       {artist: "린", title: "자기야 여보야 사랑아", genre:"한국"},
       {artist: "린", title: "통화연결음", genre:"한국"},
 
+      {artist: "박화요비", title: "그런 일은", genre:"한국"},
+
+      {artist: "백예린", title: "다시 난, 여기", genre:"한국"},
       {artist: "백예린", title: "산책", genre:"한국"},
       {artist: "백예린", title: "Antifreeze (원곡:검정치마)", genre:"한국"},
 
       {artist: "벤", title: "꿈처럼", genre:"한국"},
       {artist: "벤", title: "안갯길", genre:"한국"},
       {artist: "벤", title: "열애중", genre:"한국"},
+
+      {artist: "별", title: "안부", genre:"한국"},
+
+      {artist: "보라미유", title: "헤어지던 밤", genre:"한국"},
 
       {artist: "성시경", title: "거리에서", genre:"한국"},
       {artist: "성시경", title: "너는 나의 봄이다", genre:"한국"},
@@ -44,9 +57,19 @@ const songs = [
 
       {artist: "앤 원(Ann One)", title: "혼자하는 사랑", genre:"한국"},
 
+      {artist: "에메랄드 캐슬", title: "발걸음", genre:"한국"},
+
+      {artist: "에스파파(S.Papa.)", title: "참다행이야", genre:"한국"},
+      
       {artist: "에일리", title: "하루", genre:"한국"},
 
       {artist: "웬디", title: "Goodbye", genre:"한국"},
+
+      {artist: "유재하", title: "가리워진 길", genre:"한국"},
+
+      {artist: "윤미래", title: "시간이 흐른 뒤", genre:"한국"},
+
+      {artist: "윤상", title: "한 걸음 더", genre:"한국"},
 
       {artist: "윤하", title: "기다리다", genre:"한국"},
       {artist: "윤하", title: "비밀번호 486", genre:"한국"},
@@ -56,15 +79,25 @@ const songs = [
       {artist: "윤하", title: "텔레파시", genre:"한국"},
       {artist: "윤하", title: "혜성", genre:"한국"},
 
+      {artist: "이승기", title: "삭제", genre:"한국"},
+
       {artist: "이예준", title: "넌 나의 20대였어", genre:"한국"},
       {artist: "이예준", title: "미인 (원곡:이기찬)", genre:"한국"},
+
+      {artist: "임정희", title: "눈물이 안났어", genre:"한국"},
+      {artist: "임정희", title: "시계태엽", genre:"한국"},
 
       {artist: "적재", title: "나랑 같이 걸을래", genre:"한국"},
       {artist: "적재", title: "별 보러 가자", genre:"한국"},
 
+      {artist: "정인", title: "사랑은", genre:"한국"},
+      {artist: "정인", title: "장마", genre:"한국"},
+
       {artist: "정준일", title: "안아줘", genre:"한국"},
 
       //{artist: "정효빈", title: "몇 번의 이별", genre:"한국"},
+
+      {artist: "존박", title: "철부지", genre:"한국"},
 
       {artist: "죠지", title: "좋아해..", genre:"한국"},
       {artist: "죠지", title: "바라봐줘요", genre:"한국"},
@@ -78,6 +111,8 @@ const songs = [
       {artist: "태연", title: "만약에", genre:"한국"},
       {artist: "태연", title: "제주도 푸른 밤", genre:"한국"},
       {artist: "태연", title: "Rain", genre:"한국"},
+
+      {artist: "황가람", title: "나는 반딧불", genre:"한국"},
 
       {artist: "Ariana Grande", title: "Almost Is Never Enough", genre:"팝송"},
 
