@@ -102,7 +102,7 @@ const songs = [
       {artist: "죠지", title: "좋아해..", genre:"한국"},
       {artist: "죠지", title: "바라봐줘요", genre:"한국"},
 
-      {artist: "주(JOO)", title: "어제처럼(원곡:제이(J.ae))", genre:"한국"},
+      {artist: "주(JOO)", title: "어제처럼 (원곡:제이(J.ae))", genre:"한국"},
 
       {artist: "최은빈", title: "어떻게 사랑이 그래요 (원곡:이승환)", genre:"한국"},
 
