@@ -67,6 +67,8 @@ const songs = [
 
       {artist: "유재하", title: "가리워진 길", genre:"한국"},
 
+      {artist: "오쿠 하나코(Oku Hanako)", title: "변하지 않는 것(Kawaranai Mono)", genre:"일본"},
+
       {artist: "윤미래", title: "시간이 흐른 뒤", genre:"한국"},
 
       {artist: "윤상", title: "한 걸음 더", genre:"한국"},
