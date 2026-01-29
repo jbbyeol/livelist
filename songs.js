@@ -31,6 +31,7 @@ const songs = [
       {artist: "백예린", title: "산책", genre:"한국"},
       {artist: "백예린", title: "아주 오래된 기억", genre:"한국"},
       {artist: "백예린", title: "Antifreeze (원곡:검정치마)", genre:"한국"},
+      {artist: "백예린", title: "Bye bye my blue", genre:"한국"},
 
       {artist: "벤", title: "꿈처럼", genre:"한국"},
       {artist: "벤", title: "안갯길", genre:"한국"},
